@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('create a war file') {
             steps {
-                mvn clean package
+                clean install package
             }
         }
         stage('Building image') {
