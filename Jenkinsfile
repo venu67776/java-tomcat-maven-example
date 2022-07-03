@@ -3,13 +3,17 @@ pipeline {
 
     stages {
         stage('create a war file') {
-            steps {
-                clean install package
-            }
+            steps{
+          sh '''
+            mvn clean package
+          '''
+        }
         }
         stage('Building image') {
             steps {
+            sh '''
                 docker build -t venuzs/javaapp:$BUILD_NUMBER
+            '''
             }
         }
         stage('push to docker hub') {
