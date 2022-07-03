@@ -1,0 +1,1 @@
+sed -i 's/venuzs/venuzs/javaapp:v$BUILD_NUMBER/g' >tomcat.yaml

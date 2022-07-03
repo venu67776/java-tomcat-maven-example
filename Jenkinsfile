@@ -22,13 +22,26 @@ pipeline {
             sh '''
                 docker login -u venuzs -p venu@1234
                 docker push venuzs/javaapp:v$BUILD_NUMBER
+                sh ./change.sh
             '''
             }
         }
-        stage('Deploy to kubernetes') {
-            steps {
-                echo 'Deploying..........'
-            }
+        // stage('Deploy App on k8s') {
+        //     steps {
+        //     sshagent(['k8s']) {
+        //     sh "scp -o StrictHostKeyChecking=no tomcat.yaml ubuntu@18.206.154.213:/home/ubuntu"
+        //     script {
+        //         try{
+        //             sh "ssh ubuntu@18.206.154.213 kubectl create -f ."
+        //         }catch(error){
+        //             sh "ssh ubuntu@18.206.154.213 kubectl create -f ."
+        //     }
+        // }
+        // }
+      
+        // }
+        //   }
+        //}
         }
     }
 }
