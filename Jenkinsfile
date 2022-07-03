@@ -6,13 +6,14 @@ pipeline {
             steps{
           sh '''
             mvn clean package
+            mv target/*war myapp.war
           '''
         }
         }
         stage('Building image') {
             steps {
             sh '''
-                docker build -t venuzs/javaapp:$BUILD_NUMBER
+                docker build -t javaapp:$BUILD_NUMBER
             '''
             }
         }
