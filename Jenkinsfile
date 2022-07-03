@@ -13,7 +13,7 @@ pipeline {
         stage('Building image') {
             steps {
             sh '''
-                docker build -t javaapp:$BUILD_NUMBER
+                docker build -t javaapp:v$BUILD_NUMBER .
             '''
             }
         }
