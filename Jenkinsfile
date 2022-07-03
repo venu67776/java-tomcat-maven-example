@@ -13,7 +13,7 @@ pipeline {
         stage('Building image') {
             steps {
             sh '''
-                docker build -t javaapp:v$BUILD_NUMBER .
+                docker build -t venuzs/javaapp:v$BUILD_NUMBER .
             '''
             }
         }
@@ -25,7 +25,7 @@ pipeline {
             '''
             }
         }
-        stage('Deploy') {
+        stage('Deploy to kubernetes') {
             steps {
                 echo 'Deploying..........'
             }
