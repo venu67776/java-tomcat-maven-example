@@ -22,7 +22,7 @@ pipeline {
             sh '''
                 docker login -u venuzs -p venu@1234
                 docker push venuzs/javaapp:v$BUILD_NUMBER
-                sh ./change.sh
+                change.sh
             '''
             }
         }
