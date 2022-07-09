@@ -32,7 +32,6 @@ pipeline {
             steps {
             sshagent(['ubuntu']) {   
             sh "scp -o StrictHostKeyChecking=no myapp.yml ubuntu@54.173.166.149:/home/ubuntu"
-            pwd
             script {
                 try{
                     sh "ssh ubuntu@54.173.166.149 kubectl create -f ."
