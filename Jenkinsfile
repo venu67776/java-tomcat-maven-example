@@ -32,7 +32,8 @@ pipeline {
             steps {
             sshagent(['ubuntu']) {   
             sh "scp -o StrictHostKeyChecking=no myapp.yml ubuntu@54.173.166.149:/home/ubuntu"
-            echo "kubectl apply -f myapp.yml"
+            pwd
+            sh "kubectl apply -f myapp.yml"
        
         }
       
