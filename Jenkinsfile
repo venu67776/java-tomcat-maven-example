@@ -32,7 +32,7 @@ pipeline {
             steps {
             sshagent(['ubuntu']) {   
             sh "scp -o StrictHostKeyChecking=no myapp.yml ubuntu@54.173.166.149:/home/ubuntu"
-            sh kubectl apply -f myapp.yml
+            echo "kubectl apply -f myapp.yml"
        
         }
       
