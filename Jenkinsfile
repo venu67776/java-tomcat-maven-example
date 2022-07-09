@@ -28,21 +28,23 @@ pipeline {
             '''
             }
         }
-        // stage('Deploy App on k8s') {
-        //     steps {
-        //     sshagent(['k8s']) {
-        //     sh "scp -o StrictHostKeyChecking=no tomcat.yaml ubuntu@18.206.154.213:/home/ubuntu"
+        stage('Deploy App on k8s') {
+            steps {
+            sshagent(['k8s']) sshagent(['centos']) {
+
+            
+            sh "scp -o StrictHostKeyChecking=no myapp.yml ubuntu@18.205.159.242:/home/ubuntu"
         //     script {
         //         try{
         //             sh "ssh ubuntu@18.206.154.213 kubectl create -f ."
         //         }catch(error){
-        //             sh "ssh ubuntu@18.206.154.213 kubectl create -f ."
+        //             sh "ssh ubuntu@18.206.154.213 kubectl apply -f ."
         //     }
         // }
-        // }
+        }
       
-        // }
-        //   }
-        //}
+        }
+          }
+        }
         }
 }
