@@ -23,7 +23,7 @@ pipeline {
             sh '''
                 docker login -u venuzs -p venu@1234
                 docker push venuzs/javaapp:v-0.0.$BUILD_NUMBER
-                sed "s/test/venuzs:v-0.0.$BUILD_NUMBER/g" tomcat.yml >myapp.yml
+                sed "s/test/venuzs/javaapp:v-0.0.$BUILD_NUMBER/g" tomcat.yml >myapp.yml
                 
             '''
             }
