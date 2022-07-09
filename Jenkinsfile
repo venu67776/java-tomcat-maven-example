@@ -30,10 +30,8 @@ pipeline {
         }
         stage('Deploy App on k8s') {
             steps {
-            sshagent(['centos']) {
-
-            
-            sh "scp -o StrictHostKeyChecking=no myapp.yml ubuntu@18.205.159.242:/home/ubuntu"
+            sshagent(['ubuntu']) {   
+            sh "scp -o StrictHostKeyChecking=no myapp.yml ubuntu@54.173.166.149:/home/ubuntu"
        
         }
       
