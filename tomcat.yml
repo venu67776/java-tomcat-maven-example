@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: java-app
-        image: venuzs:version
+        image: test
         ports:
           - containerPort: 8080
 ---

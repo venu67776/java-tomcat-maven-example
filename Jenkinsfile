@@ -12,8 +12,9 @@ pipeline {
         }
         stage('Building image') {
             steps {
+                
             sh '''
-                docker build -t venuzs/javaapp:v$BUILD_NUMBER .
+                docker build -t venuzs/javaapp:v-0.0.$BUILD_NUMBER .
             '''
             }
         }
@@ -21,7 +22,7 @@ pipeline {
             steps {
             sh '''
                 docker login -u venuzs -p venu@1234
-                docker push venuzs/javaapp:v$BUILD_NUMBER
+                docker push venuzs/javaapp:v-0.0.$BUILD_NUMBER
                 change.sh
             '''
             }
