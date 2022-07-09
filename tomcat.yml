@@ -25,13 +25,14 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: java-app
-  namespace: default
+  name: my-cip-service
 spec:
+  type: NodePort
   selector:
     app: java-app
-  type: LoadBalancer
+    department: sales
   ports:
-  - name: http
-    targetPort: 80
+  - protocol: TCP
     port: 8080
+    targetPort: 8089
+
